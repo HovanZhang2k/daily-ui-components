@@ -23,7 +23,7 @@
 npm install -g typescript 
 ```
 
-### 2. TypeScript && JavaScript
+### 2. TypeScript || JavaScript
 代码中直接调用了dist中的js文件进行渲染
 
 如果对ts不了解可以直接删除，使用dist文件夹中js文件进行编辑
