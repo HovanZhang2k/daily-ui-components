@@ -17,6 +17,17 @@
 ### 1. 安装 Node.js 与 TypeScript（只需一次）
 确保你已安装 [Node.js](https://nodejs.org/)
 
-安装 TypeScript 全局编译器：
+并且确认安装了 TypeScript 全局编译器：
+
 ```bash
-npm install -g typescript
+npm install -g typescript 
+```
+
+---
+
+## 🗂️ 组件目录索引（持续更新）
+
+| 日期       | 名称                     | 简介                               |
+|------------|--------------------------|------------------------------------|
+| Day 01     | [双滑块范围选择器](https://github.com/JasonZhang2k/daily-ui-components/tree/7b9c5afe4d620430e588c5f58899e8086195cc9a/day01-range-slider) | 实现双滑块选择范围并实时显示范围 |
+| Day 02     | 🔜 Coming Soon           | 即将发布...                        |
