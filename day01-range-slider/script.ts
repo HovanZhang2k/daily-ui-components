@@ -9,7 +9,7 @@ const rangeStartValue = document.getElementById('rangeStartValue') as HTMLSpanEl
 const rangeEnd = document.getElementById('rangeEnd') as HTMLInputElement;
 const rangeEndValue = document.getElementById('rangeEndValue') as HTMLSpanElement;
 
-// 增强的更新函数
+// 更新函数
 function updateDisplay(
     element: HTMLInputElement,
     displayElement: HTMLElement,
@@ -32,7 +32,7 @@ function updateDisplay(
 
         case 'end':
             displayElement.textContent = `(${value}, 100)`;
-            // 蓝色系优化方案
+            // 蓝色系优化
             const hue = 215;
             const saturation = 80;
             const baseLightness = 70; // 最高亮度70%
@@ -61,7 +61,6 @@ rangeStart.addEventListener('input', () =>
 rangeEnd.addEventListener('input', () =>
     updateDisplay(rangeEnd, rangeEndValue, 'end'));
 
-// 新增TS代码
 const rangeUp = document.getElementById('rangeUp') as HTMLInputElement;
 const rangeDown = document.getElementById('rangeDown') as HTMLInputElement;
 const rangeDoubleValue = document.getElementById('rangeDoubleValue') as HTMLSpanElement;
@@ -138,7 +137,7 @@ class VisualRangePicker {
         }
 
         this.activeTrack.style.transition = 'none';
-        this.activeTrack.style.backgroundColor = 'transparent';  // 或者 'initial'
+        this.activeTrack.style.backgroundColor = 'transparent'; 
 
         this.currentDragger.classList.add('dragging');
     }
