@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "target": "ES6",
-    "module": "ESNext",
-    "outDir": "day01-range-slider/dist",
-    "strict": true
-  },
-  "include": ["day01-range-slider/**/*.ts"]
-}
