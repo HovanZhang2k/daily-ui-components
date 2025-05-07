@@ -9,6 +9,11 @@ body {
     background-color: #f0f0f0;
 }
 
+.container {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
 /* 统一背景格式，并固定间距 */
 .slider-container {
     background: white;
@@ -139,6 +144,8 @@ input[type="range"] {
     user-select: none;             /* 禁止文本被选中 */
     -webkit-user-drag: none;       /* 禁止浏览器图片/元素默认拖动 */
     touch-action: none;            /* 禁止浏览器默认手势 */
+    margin: auto; 
+    width: 90%;   
 }
 
 .track-container {
