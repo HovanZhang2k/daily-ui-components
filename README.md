@@ -24,6 +24,14 @@ npm install -g typescript
 ```
 
 ### 2. TypeScript || JavaScript
+进入项目根目录
+
+```bash
+tsc --watch
+```
+
+即可通过ts代码自动更新dist文件夹肿的js文件
+
 代码中直接调用了dist中的js文件进行渲染
 
 如果对ts不了解可以直接删除，使用dist文件夹中js文件进行编辑
