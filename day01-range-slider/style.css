@@ -9,6 +9,7 @@ body {
     background-color: #f0f0f0;
 }
 
+/* 统一背景格式，并固定间距 */
 .slider-container {
     background: white;
     padding: 2rem;

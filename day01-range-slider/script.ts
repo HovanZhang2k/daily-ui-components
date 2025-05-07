@@ -1,15 +1,16 @@
+// 单滑块取值
 const singleSlider = document.getElementById('singleSlider') as HTMLInputElement;
 const sliderValue = document.getElementById('sliderValue') as HTMLSpanElement;
 
-// 左范围滑块
+// 开始范围
 const rangeStart = document.getElementById('rangeStart') as HTMLInputElement;
 const rangeStartValue = document.getElementById('rangeStartValue') as HTMLSpanElement;
 
-// 新增右范围滑块
+// 结束范围
 const rangeEnd = document.getElementById('rangeEnd') as HTMLInputElement;
 const rangeEndValue = document.getElementById('rangeEndValue') as HTMLSpanElement;
 
-// 更新函数
+// 更新单滑块取值，开始范围，结束范围的范围取值，并实现颜色变化
 function updateDisplay(
     element: HTMLInputElement,
     displayElement: HTMLElement,
@@ -61,6 +62,7 @@ rangeStart.addEventListener('input', () =>
 rangeEnd.addEventListener('input', () =>
     updateDisplay(rangeEnd, rangeEndValue, 'end'));
 
+//实现双input范围取值器
 const rangeUp = document.getElementById('rangeUp') as HTMLInputElement;
 const rangeDown = document.getElementById('rangeDown') as HTMLInputElement;
 const rangeDoubleValue = document.getElementById('rangeDoubleValue') as HTMLSpanElement;
@@ -71,7 +73,7 @@ function updateDoubleRange() {
     const downValue = rangeDown.value;
     rangeDoubleValue.textContent = `(${upValue}, ${downValue})`;
 
-    // 紫色系颜色变化（可选）
+    // 紫色系颜色变化
     const avgValue = (parseInt(upValue) + parseInt(downValue)) / 2;
     rangeDoubleValue.style.color = `hsl(276, 70%, ${50 - (avgValue * 0.3)}%)`;
 }
@@ -82,6 +84,8 @@ updateDoubleRange();
 // 事件监听
 rangeUp.addEventListener('input', updateDoubleRange);
 rangeDown.addEventListener('input', updateDoubleRange);
+
+// 实现双滑块范围取值器
 class VisualRangePicker {
     private container: HTMLElement;
     private track: HTMLElement;
@@ -200,5 +204,5 @@ class VisualRangePicker {
     }
 }
 
-// 初始化可视化范围选择器
+// 初始化
 new VisualRangePicker();

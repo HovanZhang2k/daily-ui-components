@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>滑块演示</title>
+    <title>双滑块范围选择器演示</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
         <div class="slider-container">
-            <h2>单滑块演示</h2>
+            <h2>单滑块取值演示</h2>
             <input type="range" id="singleSlider" class="slider" min="0" max="100" value="50">
             <div class="value-display">当前值：<span id="sliderValue">50</span></div>
         </div>
@@ -28,16 +28,16 @@
         </div>
 
         <div class="slider-container range-container double-range">
-            <h2>范围选择器</h2>
+            <h2>双input范围选择器</h2>
             <div class="double-sliders">
                 <input type="range" id="rangeUp" class="slider top-slider" min="0" max="100" value="30">
                 <input type="range" id="rangeDown" class="slider bottom-slider" min="0" max="100" value="70">
             </div>
-            <div class="value-display">当前范围：<span id="rangeDoubleValue">(30, 70)</span></div>
+            <div class="value-display">范围取值：<span id="rangeDoubleValue">(30, 70)</span></div>
         </div>
 
         <div class="slider-container range-container visual-range">
-            <h2>可视化范围选择</h2>
+            <h2>双滑块范围选择器</h2>
             <div class="track-container">
                 <div class="track-line">
                     <div class="active-track"></div>
