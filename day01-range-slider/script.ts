@@ -133,16 +133,27 @@ class VisualRangePicker {
         this.trackRect = this.track.getBoundingClientRect();
         this.currentDragger = e.target as HTMLElement;
 
-        // 处理重叠选择逻辑
-        if (this.getLeftValue() === this.getRightValue()) {
-            const clickX = e.clientX - this.trackRect.left;
-            const midPoint = this.trackRect.width / 2;
-            this.currentDragger = clickX < midPoint ? this.leftThumb : this.rightThumb;
+        const leftValue = this.getLeftValue();
+        const rightValue = this.getRightValue();
+        const isAtStart = leftValue === 0 && rightValue === 0;
+        const isAtEnd = leftValue === 100 && rightValue === 100;
+
+        // 特殊边界处理
+        if (isAtStart) {
+            this.currentDragger = this.rightThumb;
+        } else if (isAtEnd) {
+            this.currentDragger = this.leftThumb;
+        } else if (leftValue === rightValue) {
+            // 精确点击位置判断
+            const thumbRect = this.currentDragger.getBoundingClientRect();
+            const clickX = e.clientX - thumbRect.left;
+            const thumbCenterX = thumbRect.width / 2;
+
+            // 判断点击的是左半圆还是右半圆
+            this.currentDragger = clickX < thumbCenterX ? this.leftThumb : this.rightThumb;
         }
 
         this.activeTrack.style.transition = 'none';
-        this.activeTrack.style.backgroundColor = 'transparent'; 
-
         this.currentDragger.classList.add('dragging');
     }
 

@@ -65,6 +65,15 @@ input[type="range"] {
     margin-top: 1rem;
 }
 
+/* 只针对“结束范围”那根滑块 */
+.end-range input[type=range] {
+    transform: scaleX(-1); /* 整体水平翻转 */
+}
+/* thumb 也被翻转了一次，为了鼠标坐标和视觉一致，再翻转回来 */
+.end-range input[type=range]::-webkit-slider-thumb{
+    transform: scaleX(-1);
+}
+
 .start-range .slider {
     background: #4CAF50;
 }
@@ -98,6 +107,16 @@ input[type="range"] {
     /* 深紫色 */
 }
 
+/* 仅反转这根滑块 */
+.top-slider {
+    transform: scaleX(-1); /* 整体水平翻转 */
+}
+
+/* 把 thumb 再翻回来，避免鼠标对不齐 */
+.top-slider::-webkit-slider-thumb {
+    transform: scaleX(-1);
+}
+
 .double-sliders {
     display: flex;
     flex-direction: column;
@@ -117,6 +136,9 @@ input[type="range"] {
 
 .visual-range {
     padding: 60px 20px;
+    user-select: none;             /* 禁止文本被选中 */
+    -webkit-user-drag: none;       /* 禁止浏览器图片/元素默认拖动 */
+    touch-action: none;            /* 禁止浏览器默认手势 */
 }
 
 .track-container {

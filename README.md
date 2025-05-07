@@ -32,6 +32,8 @@ tsc --watch
 
 即可通过ts代码自动更新dist文件夹中的js文件
 
+记得更新tsconfig.json文件中include指向位置更新正确js代码
+
 代码中直接调用了dist中的js文件进行渲染
 
 如果对ts不了解可以直接删除，使用dist文件夹中js文件进行编辑

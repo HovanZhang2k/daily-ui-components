@@ -1,13 +1,14 @@
 "use strict";
+// 单滑块取值
 const singleSlider = document.getElementById('singleSlider');
 const sliderValue = document.getElementById('sliderValue');
-// 左范围滑块
+// 开始范围
 const rangeStart = document.getElementById('rangeStart');
 const rangeStartValue = document.getElementById('rangeStartValue');
-// 新增右范围滑块
+// 结束范围
 const rangeEnd = document.getElementById('rangeEnd');
 const rangeEndValue = document.getElementById('rangeEndValue');
-// 增强的更新函数
+// 更新单滑块取值，开始范围，结束范围的范围取值，并实现颜色变化
 function updateDisplay(element, displayElement, mode) {
     const value = element.value;
     const numericValue = parseInt(value);
@@ -23,7 +24,7 @@ function updateDisplay(element, displayElement, mode) {
             break;
         case 'end':
             displayElement.textContent = `(${value}, 100)`;
-            // 蓝色系优化方案
+            // 蓝色系优化
             const hue = 215;
             const saturation = 80;
             const baseLightness = 70; // 最高亮度70%
@@ -42,7 +43,8 @@ updateDisplay(rangeEnd, rangeEndValue, 'end');
 singleSlider.addEventListener('input', () => updateDisplay(singleSlider, sliderValue, 'single'));
 rangeStart.addEventListener('input', () => updateDisplay(rangeStart, rangeStartValue, 'start'));
 rangeEnd.addEventListener('input', () => updateDisplay(rangeEnd, rangeEndValue, 'end'));
-// 新增TS代码
+
+//实现双input范围取值器
 const rangeUp = document.getElementById('rangeUp');
 const rangeDown = document.getElementById('rangeDown');
 const rangeDoubleValue = document.getElementById('rangeDoubleValue');
@@ -51,7 +53,7 @@ function updateDoubleRange() {
     const upValue = rangeUp.value;
     const downValue = rangeDown.value;
     rangeDoubleValue.textContent = `(${upValue}, ${downValue})`;
-    // 紫色系颜色变化（可选）
+    // 紫色系颜色变化
     const avgValue = (parseInt(upValue) + parseInt(downValue)) / 2;
     rangeDoubleValue.style.color = `hsl(276, 70%, ${50 - (avgValue * 0.3)}%)`;
 }
@@ -60,6 +62,8 @@ updateDoubleRange();
 // 事件监听
 rangeUp.addEventListener('input', updateDoubleRange);
 rangeDown.addEventListener('input', updateDoubleRange);
+
+// 实现双滑块范围取值器
 class VisualRangePicker {
     constructor() {
         this.currentDragger = null;
@@ -92,14 +96,26 @@ class VisualRangePicker {
     startDrag(e) {
         this.trackRect = this.track.getBoundingClientRect();
         this.currentDragger = e.target;
-        // 处理重叠选择逻辑
-        if (this.getLeftValue() === this.getRightValue()) {
-            const clickX = e.clientX - this.trackRect.left;
-            const midPoint = this.trackRect.width / 2;
-            this.currentDragger = clickX < midPoint ? this.leftThumb : this.rightThumb;
+        const leftValue = this.getLeftValue();
+        const rightValue = this.getRightValue();
+        const isAtStart = leftValue === 0 && rightValue === 0;
+        const isAtEnd = leftValue === 100 && rightValue === 100;
+        // 特殊边界处理
+        if (isAtStart) {
+            this.currentDragger = this.rightThumb;
+        }
+        else if (isAtEnd) {
+            this.currentDragger = this.leftThumb;
+        }
+        else if (leftValue === rightValue) {
+            // 精确点击位置判断
+            const thumbRect = this.currentDragger.getBoundingClientRect();
+            const clickX = e.clientX - thumbRect.left;
+            const thumbCenterX = thumbRect.width / 2;
+            // 判断点击的是左半圆还是右半圆
+            this.currentDragger = clickX < thumbCenterX ? this.leftThumb : this.rightThumb;
         }
         this.activeTrack.style.transition = 'none';
-        this.activeTrack.style.backgroundColor = 'transparent'; // 或者 'initial'
         this.currentDragger.classList.add('dragging');
     }
     handleDrag(e) {
@@ -151,5 +167,5 @@ class VisualRangePicker {
         this.valueDisplay.textContent = `(${left}, ${right})`;
     }
 }
-// 初始化可视化范围选择器
+// 初始化
 new VisualRangePicker();
