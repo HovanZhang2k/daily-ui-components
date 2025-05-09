@@ -13,7 +13,7 @@ class AutoProgress {
     private updateProgress(): void {
         const newValue = this.progressElement.value + 1;
         const progress = newValue > 100 ? 0 : newValue;
-        
+
         this.progressElement.value = progress;
         this.valueDisplay.textContent = `${progress}%`;
     }

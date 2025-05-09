@@ -22,12 +22,14 @@ body {
 
 .progress-container progress {
     width: 100%;
-    height: 24px;  /* 加厚进度条 */
+    height: 24px;
+    /* 加厚进度条 */
     margin: 15px 0;
     -webkit-appearance: none;
     appearance: none;
     background-color: #eee;
-    border-radius: 12px;  /* 匹配加厚高度 */
+    border-radius: 12px;
+    /* 匹配加厚高度 */
     overflow: hidden;
     display: block;
 }
