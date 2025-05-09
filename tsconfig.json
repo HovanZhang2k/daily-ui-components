@@ -2,10 +2,10 @@
     "compilerOptions": {
         "target": "ES6",
         "module": "ESNext",
-        "outDir": "day01-range-slider/dist",
+        "outDir": "day02-progress-bar/dist",
         "strict": true
     },
     "include": [
-        "day01-range-slider/**/*.ts"
+        "day02-progress-bar/**/*.ts"
     ]
 }
