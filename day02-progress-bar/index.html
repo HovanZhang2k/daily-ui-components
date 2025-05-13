@@ -3,17 +3,57 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>自动进度条演示</title>
+  <title>进度条演示</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <div class="container">
     <div class="progress-container">
-      <h2>自动进度演示</h2>
+      <h2>自动进度演示（使用Progress）</h2>
       <progress id="autoProgress" max="100" value="0"></progress>
       <div class="value-display">
         当前进度：<span id="progressValue">0%</span>
+      </div>
+    </div>
+
+    <div class="progress-container">
+      <h2>按钮控制进度条（使用Progress）</h2>
+      <progress id="customProgress" max="100" value="50"></progress>
+      <div class="value-display">
+        当前进度：<span id="customProgressValue">0%</span>
+      </div>
+      <div class="controls">
+        <button id="decreaseBtn">-</button>
+        <button id="resetBtn">重置</button>
+        <button id="increaseBtn">+</button>
+      </div>
+      <div class="feature-note">
+        <p>功能：自动循环 + 按钮控制（操作后5秒恢复自动）</p>
+      </div>
+    </div>
+
+    <div class="progress-container">
+      <h2>自定义进度条（不使用Progress）</h2>
+      <div class="custom-progress">
+        <div class="custom-progress-bar" id="customBar"></div>
+      </div>
+      <div class="value-display">
+        当前进度：<span id="customBarValue">0%</span>
+      </div>
+      <div class="controls">
+        <button id="customDecreaseBtn">-</button>
+        <button id="customResetBtn">重置</button>
+        <button id="customIncreaseBtn">+</button>
+      </div>
+      <div class="feature-note">
+        <p>特色功能（原生Progress不支持）：</p>
+        <ul>
+          <li>点击进度条任意位置设置进度</li>
+          <li>触发脉冲动画效果</li>
+          <li>到达75%里程碑时变色并动画</li>
+          <li>自动来回往返（0% ⟷ 100%）</li>
+        </ul>
       </div>
     </div>
   </div>

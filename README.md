@@ -27,7 +27,7 @@ npm install -g typescript
 进入项目根目录，执行：
 
 ```bash
-tsc --watch
+tsc -w
 ```
 
 即可通过ts代码自动更新dist文件夹中的js文件
