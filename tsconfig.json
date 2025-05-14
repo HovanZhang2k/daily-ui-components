@@ -2,10 +2,10 @@
     "compilerOptions": {
         "target": "ES6",
         "module": "ESNext",
-        "outDir": "day03-image-carousel/dist",
+        "outDir": "day04-dancing-buttons/dist",
         "strict": true
     },
     "include": [
-        "day03-image-carousel/**/*.ts"
+        "day04-dancing-buttons/**/*.ts"
     ]
 }

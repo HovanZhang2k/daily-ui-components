@@ -47,4 +47,4 @@ tsc -w
 | Day 01     | [双滑块范围选择器](https://github.com/JasonZhang2k/daily-ui-components/tree/main/day01-range-slider) | 实现双滑块选择范围并实时显示范围 |
 | Day 02     | [高级进度条效果](https://github.com/JasonZhang2k/daily-ui-components/tree/main/day02-progress-bar) | 多种进度条实现及特效展示 |
 | Day 03     | [原生图片轮播图](https://github.com/JasonZhang2k/daily-ui-components/tree/main/day03-image-carousel) | 多种过渡效果的图片轮播组件 |
-| Day 04     | 🔜 Coming Soon           | 即将发布...                        |
+| Day 04     | [会跳舞的3D按钮](https://github.com/JasonZhang2k/daily-ui-components/tree/main/day04-dancing-buttons) | 3D跳舞按钮和会逃跑的交互式按钮 |

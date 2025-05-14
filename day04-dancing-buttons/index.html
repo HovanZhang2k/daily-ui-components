@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>会跳舞/逃跑的按钮</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    
+    <section class="button-section">
+      <h2>1. 普通按钮</h2>
+      <button class="btn btn-normal" id="normalBtn">点击改变背景色</button>
+      <p class="button-description">基础按钮，带有悬停效果，点击时改变页面背景色为红色</p>
+    </section>
+    
+    <section class="button-section">
+      <h2>2. 3D跳舞按钮</h2>
+      <button class="btn btn-dancing" id="dancingBtn">
+        <span class="btn-face front">点击改变背景色</span>
+        <span class="btn-face back">变色效果</span>
+        <span class="btn-face top">按我</span>
+        <span class="btn-face bottom">跳舞中</span>
+        <span class="btn-face left">3D</span>
+        <span class="btn-face right">特效</span>
+      </button>
+      <p class="button-description">3D立体按钮，悬停时会绕轴旋转跳舞，点击时改变背景色为黄色</p>
+    </section>
+    
+    <section class="button-section">
+      <h2>3. 逃跑按钮</h2>
+      <div class="escape-controls">
+        <label for="escapeRange">逃跑范围：</label>
+        <select id="escapeRange" class="escape-range-select">
+          <option value="fullscreen">全屏</option>
+          <option value="container">容器内</option>
+        </select>
+      </div>
+      <div class="escape-container">
+        <button class="btn btn-escape" id="escapeBtn">来抓我啊</button>
+        <div class="escape-hint">鼠标靠近时按钮会向随机方向逃跑，在所选范围内移动！</div>
+      </div>
+      <p class="button-description">这个按钮会向随机方向高速逃跑，每次逃跑距离和方向都不同，点击成功后会变为蓝色背景</p>
+    </section>
+  </div>
+
+  <script src="./dist/script.js"></script>
+</body>
+
+</html>
