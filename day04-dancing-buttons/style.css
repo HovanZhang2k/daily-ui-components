@@ -265,7 +265,6 @@ h2 {
 }
 
 .btn-escape:after {
-  content: '🏃';
   margin-left: 8px;
   font-size: 1.2em;
 }

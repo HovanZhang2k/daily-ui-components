@@ -30,6 +30,25 @@ const colorPalettes: ColorData[] = [
     { background: '#ff9800', textClass: 'dark-mode' },  // 亮橙
 ];
 
+// 逃跑按钮的挑衅文字数组
+const teasingTexts = [
+    "来抓我啊",
+    "再努努力",
+    "抓不到抓不到",
+    "略略略 😝",
+    "追上我试试？",
+    "就这？",
+    "慢死啦~"
+];
+
+// 被抓到后的文字数组
+const caughtTexts = [
+    "终于抓到我一次",
+    "被追上了呢",
+    "我接着跑如何？",
+    "好吧，算你厉害"
+];
+
 // DOM元素
 let normalBtn: HTMLElement;
 let dancingBtn: HTMLElement;
@@ -41,6 +60,9 @@ let body: HTMLElement;
 let isChasingEscapeButton = false;
 let lastEscapeDirection = { x: 0, y: 0 };
 let escapeMode: 'fullscreen' | 'container' = 'fullscreen'; // 默认是全屏模式
+let textChangeInterval: number | null = null; // 文字变化的定时器
+let currentTextIndex = 0; // 当前文字索引
+let wasCaught = false; // 按钮是否被抓到过
 
 /**
  * 初始化页面元素
@@ -54,11 +76,17 @@ function initElements(): void {
 
     // 初始化逃跑按钮位置
     resetEscapeButtonPosition();
+    
+    // 开始文字变化循环
+    startTextChangeInterval();
 
     // 添加事件监听器
     normalBtn.addEventListener('click', () => changeBackgroundColor('normal'));
     dancingBtn.addEventListener('click', () => changeBackgroundColor('dancing'));
-    escapeBtn.addEventListener('click', () => changeBackgroundColor('escape'));
+    escapeBtn.addEventListener('click', () => {
+        changeBackgroundColor('escape');
+        handleButtonCaught();
+    });
     
     // 监听逃跑范围选择器的变化
     escapeRangeSelect.addEventListener('change', () => {
@@ -70,6 +98,53 @@ function initElements(): void {
     document.addEventListener('mousemove', (e: Event) => {
         handleEscapeButtonHover(e as MouseEvent);
     });
+}
+
+/**
+ * 开始文字变化的定时器
+ */
+function startTextChangeInterval(): void {
+    // 清除可能存在的之前的定时器
+    if (textChangeInterval) {
+        clearInterval(textChangeInterval);
+    }
+    
+    // 每秒更新一次文字
+    textChangeInterval = setInterval(() => {
+        updateButtonText();
+    }, 1000);
+}
+
+/**
+ * 更新按钮文字
+ */
+function updateButtonText(): void {
+    if (!escapeBtn) return;
+    
+    if (wasCaught) {
+        // 如果已被抓到，使用被抓到文字
+        currentTextIndex = (currentTextIndex + 1) % caughtTexts.length;
+        escapeBtn.textContent = caughtTexts[currentTextIndex];
+        
+        // 3秒后重置为未被抓到状态，继续使用挑衅文字
+        setTimeout(() => {
+            wasCaught = false;
+            currentTextIndex = 0;
+        }, 3000);
+    } else {
+        // 正常使用挑衅文字
+        currentTextIndex = (currentTextIndex + 1) % teasingTexts.length;
+        escapeBtn.textContent = teasingTexts[currentTextIndex];
+    }
+}
+
+/**
+ * 处理按钮被抓到的情况
+ */
+function handleButtonCaught(): void {
+    wasCaught = true;
+    currentTextIndex = 0;
+    escapeBtn.textContent = caughtTexts[currentTextIndex];
 }
 
 /**
@@ -229,3 +304,10 @@ function handleEscapeButtonHover(e: MouseEvent): void {
 
 // 当页面加载完成时初始化
 document.addEventListener('DOMContentLoaded', initElements);
+
+// 清理函数 - 确保页面卸载时清除定时器
+window.addEventListener('beforeunload', () => {
+    if (textChangeInterval) {
+        clearInterval(textChangeInterval);
+    }
+});
