@@ -2,10 +2,10 @@
     "compilerOptions": {
         "target": "ES6",
         "module": "ESNext",
-        "outDir": "day02-progress-bar/dist",
+        "outDir": "day03-image-carousel/dist",
         "strict": true
     },
     "include": [
-        "day02-progress-bar/**/*.ts"
+        "day03-image-carousel/**/*.ts"
     ]
 }

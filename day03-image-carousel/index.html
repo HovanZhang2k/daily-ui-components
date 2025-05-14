@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>图片轮播图演示</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>原生图片轮播图</h1>
+    
+    <!-- 基础轮播图 -->
+    <div class="carousel-container">
+      <h2>基础轮播图</h2>
+      <div class="carousel" id="basicCarousel">
+        <div class="carousel-inner">
+          <!-- 图片将由JavaScript动态加载 -->
+        </div>
+        
+        <button class="carousel-control prev" id="basicPrev">
+          <span class="arrow">&lt;</span>
+        </button>
+        <button class="carousel-control next" id="basicNext">
+          <span class="arrow">&gt;</span>
+        </button>
+        
+        <div class="carousel-indicators" id="basicIndicators">
+          <!-- 指示器将由JavaScript动态加载 -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 高级效果轮播图 -->
+    <div class="carousel-container">
+      <h2>高级效果轮播图</h2>
+      <div class="carousel advanced" id="advancedCarousel">
+        <div class="carousel-inner">
+          <!-- 图片将由JavaScript动态加载 -->
+        </div>
+        
+        <button class="carousel-control prev" id="advancedPrev">
+          <span class="arrow">&lt;</span>
+        </button>
+        <button class="carousel-control next" id="advancedNext">
+          <span class="arrow">&gt;</span>
+        </button>
+        
+        <div class="carousel-indicators" id="advancedIndicators">
+          <!-- 指示器将由JavaScript动态加载 -->
+        </div>
+        
+        <div class="carousel-caption" id="advancedCaption">
+          <!-- 标题和描述将由JavaScript动态加载 -->
+        </div>
+      </div>
+      
+      <div class="carousel-options">
+        <div class="option-group">
+          <label>
+            <input type="checkbox" id="autoplayToggle" checked>
+            自动播放
+          </label>
+          <div class="option-row">
+            <label for="intervalInput">间隔时间(ms):</label>
+            <input type="number" id="intervalInput" min="1000" max="10000" step="500" value="3000">
+          </div>
+        </div>
+        
+        <div class="option-group">
+          <label>过渡效果:</label>
+          <select id="transitionSelect">
+            <option value="fade">淡入淡出</option>
+            <option value="slide" selected>滑动</option>
+            <option value="zoom">缩放</option>
+            <option value="flip">翻转</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./dist/script.js"></script>
+</body>
+
+</html> 
