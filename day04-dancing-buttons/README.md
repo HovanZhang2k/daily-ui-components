@@ -11,12 +11,12 @@
 
 2. 黄色3D跳舞按钮
 <div align="center">
-    <img src="./assets/demo2.png" alt="3D跳舞按钮演示" style="max-width:480px;">
+    <img src="./assets/demo2.gif" alt="3D跳舞按钮演示" style="max-width:480px;">
 </div>
 
 3. 蓝色逃跑按钮
 <div align="center">
-    <img src="./assets/demo3.png" alt="逃跑按钮演示" style="max-width:480px;">
+    <img src="./assets/demo3.gif" alt="逃跑按钮演示" style="max-width:480px;">
 </div>
 
 ## 功能特点
